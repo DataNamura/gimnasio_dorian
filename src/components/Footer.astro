@@ -1,0 +1,69 @@
+---
+import { IoLogoInstagram } from "react-icons/io5";
+---
+
+<footer class="bg-black border-t border-white/10 py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Logo y descripción -->
+            <div class="col-span-1 md:col-span-2">
+                <a href="/" class="text-2xl font-bold tracking-tight mb-4 block">
+                    <span class="text-red-600">DORIAN</span>
+                </a>
+                <p class="text-gray-400 mb-6">
+                    Tu gimnasio de confianza en El Médano, Tenerife. Ofrecemos entrenamiento personalizado, 
+                    equipamiento moderno y un ambiente acogedor para ayudarte a alcanzar tus objetivos fitness.
+                </p>
+                <a 
+                    href="https://www.instagram.com/gimnasiodorian_/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-white hover:text-red-600 transition-colors"
+                >
+                    <IoLogoInstagram className="text-xl" />
+                    <span>Síguenos en Instagram</span>
+                </a>
+            </div>
+
+            <!-- Enlaces rápidos -->
+            <div>
+                <h3 class="text-white font-bold mb-4">Enlaces Rápidos</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#sobre-nosotros" class="text-gray-400 hover:text-white transition-colors">Sobre Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="#instalaciones" class="text-gray-400 hover:text-white transition-colors">Instalaciones</a>
+                    </li>
+                    <li>
+                        <a href="#servicios" class="text-gray-400 hover:text-white transition-colors">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="#plan-personalizado" class="text-gray-400 hover:text-white transition-colors">Plan Personalizado</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contacto -->
+            <div>
+                <h3 class="text-white font-bold mb-4">Contacto</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li>Av. Magallanes</li>
+                    <li>38612 El Médano, Tenerife</li>
+                    <li>Tel: 695 27 06 27</li>
+                    <li class="pt-2">
+                        <strong class="text-white">Horario:</strong>
+                        <br />L-V: 8:00 - 22:00
+                        <br />S: 9:00 - 14:00 y 17:00 - 20:00
+                        <br />D: Cerrado
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Gimnasio Dorian. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,228 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Gimnasio Dorian - El mejor gimnasio en El Médano, Tenerife. Entrenamiento personalizado, musculación, cardio y más. ¡Primer mes por solo 40€!" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- PWA Meta Tags -->
+		<meta name="theme-color" content="#dc2626" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="Gimnasio Dorian" />
+		<link rel="manifest" href="/manifest.json" />
+		<link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+		
+		<!-- SEO Tags -->
+		<title>{title} | Gimnasio en El Médano, Tenerife</title>
+		<meta name="keywords" content="gimnasio el médano, gym el médano, gimnasio tenerife sur, gimnasio dorian, entrenamiento personal el médano, musculación tenerife, gimnasio tenerife" />
+		<meta name="author" content="Gimnasio Dorian" />
+		<meta name="robots" content="index, follow" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://gimnasiodorian.com/" />
+		<meta property="og:title" content="Gimnasio Dorian | Tu gimnasio en El Médano, Tenerife" />
+		<meta property="og:description" content="El mejor gimnasio en El Médano, Tenerife. Entrenamiento personalizado, musculación, cardio y más. ¡Primer mes por solo 40€!" />
+		<meta property="og:image" content="https://gimnasiodorian.com/og-image.jpg" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://gimnasiodorian.com/" />
+		<meta property="twitter:title" content="Gimnasio Dorian | El mejor gimnasio en El Médano" />
+		<meta property="twitter:description" content="Tu gimnasio en El Médano, Tenerife. Entrenamiento personalizado, musculación, cardio y más. ¡Primer mes por solo 40€!" />
+		<meta property="twitter:image" content="https://gimnasiodorian.com/og-image.jpg" />
+		
+		<!-- Preload -->
+		<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+		<!-- Schema.org markup for Google -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "FitnessCenter",
+				"name": "Dorian Gym",
+				"image": "https://doriangym.com/og-image.jpg",
+				"@id": "https://doriangym.com",
+				"url": "https://doriangym.com",
+				"telephone": "+34695270627",
+				"priceRange": "€€",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Av. Magallanes",
+					"addressLocality": "El Médano",
+					"addressRegion": "Santa Cruz de Tenerife",
+					"postalCode": "38612",
+					"addressCountry": "ES"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": 28.0475833,
+					"longitude": -16.536684
+				},
+				"openingHoursSpecification": [
+					{
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+						"opens": "08:00",
+						"closes": "22:00"
+					},
+					{
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": "Saturday",
+						"opens": "09:00",
+						"closes": "14:00"
+					},
+					{
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": "Saturday",
+						"opens": "17:00",
+						"closes": "20:00"
+					}
+				],
+				"sameAs": [
+					"https://www.facebook.com/doriangym",
+					"https://www.instagram.com/doriangym"
+				]
+			}
+		</script>
+	</head>
+	<body class="bg-black text-white font-['Inter']">
+		<slot />
+		<script>
+			// Register Service Worker
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/service-worker.js')
+						.then(registration => {
+							console.log('SW registered:', registration);
+						})
+						.catch(error => {
+							console.log('SW registration failed:', error);
+						});
+				});
+			}
+
+			// Performance optimizations
+			document.addEventListener('touchstart', function() {}, {passive: true});
+			document.addEventListener('wheel', function() {}, {passive: true});
+
+			// Preload images
+			const preloadImages = () => {
+				const images = document.querySelectorAll('img[data-src]');
+				const imageObserver = new IntersectionObserver((entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							const img = entry.target;
+							img.src = img.dataset.src;
+							img.removeAttribute('data-src');
+							imageObserver.unobserve(img);
+						}
+					});
+				});
+
+				images.forEach(img => imageObserver.observe(img));
+			};
+
+			// Initialize on DOM load
+			document.addEventListener('DOMContentLoaded', () => {
+				preloadImages();
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--accent: #dc2626;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		margin: 0;
+		min-height: 100vh;
+		overflow-x: hidden;
+	}
+
+	/* Scrollbar Styles - Más sutil */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #1a1a1a;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #333;
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #444;
+	}
+
+	/* Mejoras de rendimiento */
+	* {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+
+	/* Transiciones suaves */
+	.transition-all {
+		transition-duration: 300ms;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	/* Mejora de animaciones */
+	[data-aos] {
+		backface-visibility: hidden;
+		transform: translateZ(0);
+		perspective: 1000px;
+	}
+
+	/* Optimizaciones táctiles */
+	@media (hover: none) {
+		* {
+			-webkit-tap-highlight-color: transparent;
+		}
+	}
+
+	/* Optimizaciones de rendimiento */
+	img {
+		content-visibility: auto;
+	}
+
+	/* Mejoras de accesibilidad */
+	:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	/* Soporte para modo oscuro del sistema */
+	@media (prefers-color-scheme: dark) {
+		html {
+			color-scheme: dark;
+		}
+	}
+</style>

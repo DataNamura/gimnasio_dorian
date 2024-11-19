@@ -1,0 +1,73 @@
+---
+import { FaPhone, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+---
+
+<section id="contacto" class="py-20">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">
+            <span class="text-gym-red">Contacta</span> con Nosotros
+        </h2>
+        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Estamos aquí para ayudarte a comenzar tu viaje fitness
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Información de Contacto -->
+            <div class="space-y-8" data-aos="fade-right">
+                <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 flex items-start space-x-4 border border-white/5 shadow-2xl">
+                    <div class="text-gym-red text-2xl mt-1">
+                        <FaMapMarkerAlt />
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Ubicación</h3>
+                        <p class="text-gray-400">Av. Magallanes, 38612 El Médano, Tenerife</p>
+                    </div>
+                </div>
+
+                <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 flex items-start space-x-4 border border-white/5 shadow-2xl">
+                    <div class="text-gym-red text-2xl mt-1">
+                        <FaPhone />
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Teléfono</h3>
+                        <p class="text-gray-400">695 27 06 27</p>
+                    </div>
+                </div>
+
+                <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 flex items-start space-x-4 border border-white/5 shadow-2xl">
+                    <div class="text-gym-red text-2xl mt-1">
+                        <FaClock />
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Horario</h3>
+                        <div class="space-y-2 text-gray-400">
+                            <p>Lunes a Viernes: 8:00–22:00</p>
+                            <p>Sábado: 9:00–14:00, 17:00–20:00</p>
+                            <p>Domingo: Cerrado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa -->
+            <div class="h-[500px] rounded-xl overflow-hidden" data-aos="fade-left">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.2794367534257!2d-16.536684!3d28.0475833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6aa6e355555555%3A0x8c8c8c8c8c8c8c8c!2sAv.%20Magallanes%2C%2038612%20El%20M%C3%A9dano%2C%20Santa%20Cruz%20de%20Tenerife!5e0!3m2!1ses!2ses!4v1629789012345!5m2!1ses!2ses"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        position: relative;
+        z-index: 1;
+    }
+</style>

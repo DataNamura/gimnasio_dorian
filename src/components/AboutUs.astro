@@ -1,0 +1,51 @@
+---
+import { FaDumbbell } from 'react-icons/fa';
+---
+
+<section id="nosotros" class="py-20">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">
+            <span class="text-gym-red">Sobre</span> Nosotros
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-12">
+            <!-- Texto -->
+            <div class="space-y-6" data-aos="fade-right">
+                <p class="text-gray-300 leading-relaxed">
+                    En Gimnasio Dorian, en El Médano, Tenerife, somos más que un gimnasio. Somos una comunidad apasionada por el bienestar físico y mental. Nuestras modernas instalaciones, el equipamiento de última generación y un equipo altamente cualificado están diseñados para ayudarte a superar tus límites y alcanzar tus metas, sea cual sea tu nivel de experiencia.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Te ofrecemos un espacio donde el esfuerzo, la motivación y los resultados se encuentran. Aquí, cada entrenamiento es una oportunidad para crecer y cada miembro es parte de una gran familia fitness.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Nuestro compromiso es guiarte en cada paso de tu viaje fitness. Con programas adaptados a todos los niveles, desde principiantes hasta atletas avanzados, te proporcionamos las herramientas, el conocimiento y el apoyo necesario para transformar tu cuerpo y mente. En Dorian, no solo entrenamos cuerpos, construimos confianza y forjamos disciplina.
+                </p>
+            </div>
+
+            <!-- Imagen -->
+            <div class="relative group" data-aos="fade-left">
+                <div class="relative overflow-hidden rounded-xl shadow-2xl">
+                    <img 
+                        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                        alt="Instalaciones del gimnasio" 
+                        class="w-full aspect-video object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/50 to-transparent"></div>
+                </div>
+                <div class="absolute bottom-4 left-4 right-4 text-white z-10">
+                    <div class="flex items-center space-x-2">
+                        <FaDumbbell className="text-gym-red" />
+                        <span class="text-sm font-medium">Equipamiento de última generación</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        position: relative;
+        z-index: 1;
+    }
+</style>

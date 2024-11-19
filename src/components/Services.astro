@@ -1,0 +1,107 @@
+---
+import { FaDumbbell, FaRunning, FaUsers, FaHeart } from 'react-icons/fa';
+---
+
+<section id="servicios" class="py-20">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">
+            <span class="text-gym-red">Nuestros</span> Servicios
+        </h2>
+        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+            Ofrecemos instalaciones modernas y servicios completos para ayudarte a alcanzar tus objetivos fitness
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Servicio 1 -->
+            <div class="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden group hover:scale-105 transition-transform duration-300 border border-white/5 shadow-2xl" data-aos="fade-up">
+                <div class="relative h-48 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48"
+                        alt="Entrenamiento personalizado"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <div class="text-3xl text-gym-red mb-4 flex justify-center">
+                        <FaDumbbell />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Entrenamiento Personal</h3>
+                    <p class="text-gray-400">
+                        Entrenadores expertos para guiarte en tu camino fitness.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden group hover:scale-105 transition-transform duration-300 border border-white/5 shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative h-48 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b"
+                        alt="Clases grupales"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <div class="text-3xl text-gym-red mb-4 flex justify-center">
+                        <FaUsers />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Clases Grupales</h3>
+                    <p class="text-gray-400">
+                        Variedad de clases para todos los niveles y objetivos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden group hover:scale-105 transition-transform duration-300 border border-white/5 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative h-48 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3"
+                        alt="Cardio y resistencia"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <div class="text-3xl text-gym-red mb-4 flex justify-center">
+                        <FaRunning />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Cardio y Resistencia</h3>
+                    <p class="text-gray-400">
+                        Zona cardio completa con equipos de última generación.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Servicio 4 -->
+            <div class="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden group hover:scale-105 transition-transform duration-300 border border-white/5 shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative h-48 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1518611012118-696072aa579a"
+                        alt="Nutrición y bienestar"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <div class="text-3xl text-gym-red mb-4 flex justify-center">
+                        <FaHeart />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Nutrición y Bienestar</h3>
+                    <p class="text-gray-400">
+                        Asesoramiento nutricional personalizado para optimizar resultados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        position: relative;
+        z-index: 1;
+    }
+</style>
