@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Política de Privacidad">
+    <Header />
+    <main class="bg-black min-h-screen">
+        <div class="container mx-auto px-4 py-32">
+            <h1 class="text-5xl font-bold mb-8 text-center">
+                <span class="text-white">Política de</span> <span class="text-gym-red">Privacidad</span>
+            </h1>
+            
+            <div class="prose prose-invert max-w-4xl mx-auto">
+                <p class="text-gray-400 text-center mb-16">Última actualización: {new Date().toLocaleDateString('es-ES')}</p>
+
+                <div class="space-y-8">
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">1. Identificación del Responsable</h2>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Razón Social: Gimnasio Dorian</li>
+                            <li>Dirección: Av. Magallanes, El Médano, Tenerife</li>
+                            <li>Email: info@gimnasio-dorian.com</li>
+                            <li>Teléfono: +34 922 XXX XXX</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">2. Finalidad del Tratamiento de Datos</h2>
+                        <p class="text-gray-300 mb-4">En Gimnasio Dorian tratamos sus datos personales para las siguientes finalidades:</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Gestión de inscripciones y membresías</li>
+                            <li>Reserva de clases y servicios</li>
+                            <li>Facturación y cobro de servicios</li>
+                            <li>Envío de comunicaciones sobre nuestros servicios</li>
+                            <li>Gestión de consultas y solicitudes</li>
+                            <li>Envío de newsletter (con consentimiento expreso)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">3. Base Legal para el Tratamiento</h2>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Ejecución del contrato de servicios</li>
+                            <li>Consentimiento expreso del interesado</li>
+                            <li>Cumplimiento de obligaciones legales</li>
+                            <li>Interés legítimo del responsable</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">4. Conservación de los Datos</h2>
+                        <p class="text-gray-300">
+                            Los datos personales se conservarán mientras se mantenga la relación contractual y, posteriormente, 
+                            durante los plazos legalmente establecidos (6 años en documentación contable y fiscal). 
+                            Los datos para el envío de comunicaciones comerciales se conservarán hasta que solicite su supresión.
+                        </p>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">5. Destinatarios de los Datos</h2>
+                        <p class="text-gray-300">Sus datos podrán ser comunicados a:</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2 mt-4">
+                            <li>Administración Tributaria</li>
+                            <li>Entidades bancarias para la gestión de cobros</li>
+                            <li>Compañías aseguradoras (en caso de contratación de seguros)</li>
+                            <li>Prestadores de servicios tecnológicos</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">6. Derechos de los Usuarios</h2>
+                        <p class="text-gray-300 mb-4">Puede ejercer los siguientes derechos:</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Acceso: conocer qué datos suyos estamos tratando</li>
+                            <li>Rectificación: modificar los datos inexactos</li>
+                            <li>Supresión: solicitar la eliminación de sus datos</li>
+                            <li>Oposición: oponerse al tratamiento de sus datos</li>
+                            <li>Limitación del tratamiento: solicitar la limitación del tratamiento</li>
+                            <li>Portabilidad: recibir sus datos en formato electrónico</li>
+                        </ul>
+                        <p class="text-gray-300 mt-4">
+                            Puede ejercer estos derechos enviando un email a info@gimnasio-dorian.com, 
+                            adjuntando copia de su DNI/NIE.
+                        </p>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">7. Medidas de Seguridad</h2>
+                        <p class="text-gray-300">
+                            Aplicamos las medidas de seguridad técnicas y organizativas apropiadas para garantizar un nivel 
+                            de seguridad adecuado al riesgo, incluyendo:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2 mt-4">
+                            <li>Cifrado de datos personales</li>
+                            <li>Capacidad de garantizar la confidencialidad e integridad</li>
+                            <li>Capacidad de restaurar los datos en caso de incidente</li>
+                            <li>Proceso de verificación y evaluación regular</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">8. Reclamaciones</h2>
+                        <p class="text-gray-300">
+                            Si considera que el tratamiento de sus datos personales vulnera la normativa, 
+                            tiene derecho a presentar una reclamación ante la Agencia Española de Protección 
+                            de Datos (www.aepd.es).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>

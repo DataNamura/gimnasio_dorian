@@ -55,21 +55,31 @@ import { IoLogoInstagram } from "react-icons/io5";
                 <h3 class="text-white font-bold mb-4">Contacto</h3>
                 <ul class="space-y-2 text-gray-400">
                     <li>Av. Magallanes</li>
-                    <li>38612 El Médano, Tenerife</li>
-                    <li>Tel: 695 27 06 27</li>
-                    <li class="pt-2">
-                        <strong class="text-white">Horario:</strong>
-                        <br />L-V: 8:00 - 22:00
-                        <br />S: 9:00 - 14:00 y 17:00 - 20:00
-                        <br />D: Cerrado
-                    </li>
+                    <li>El Médano, Tenerife</li>
+                    <li>+34 922 XXX XXX</li>
+                    <li>info@gimnasiodorian.com</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Copyright -->
-        <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Gimnasio Dorian. Todos los derechos reservados.</p>
+        <!-- Enlaces legales -->
+        <div class="mt-12 pt-8 border-t border-white/10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-sm">
+                    &copy; {new Date().getFullYear()} Gimnasio Dorian. Todos los derechos reservados.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
+                    <a href="/terminos-y-condiciones" class="text-gray-400 hover:text-white transition-colors">
+                        Términos y Condiciones
+                    </a>
+                    <a href="/politica-de-privacidad" class="text-gray-400 hover:text-white transition-colors">
+                        Política de Privacidad
+                    </a>
+                    <a href="/politica-de-cookies" class="text-gray-400 hover:text-white transition-colors">
+                        Política de Cookies
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </footer>

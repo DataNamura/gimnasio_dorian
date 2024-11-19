@@ -1,24 +1,29 @@
 ---
 import { FaBars } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
+
+// Obtener la ruta actual
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === '/';
+const baseUrl = isHomePage ? '' : '/';
 ---
 
 <header class="fixed w-full top-0 z-50 bg-black border-b border-white/5">
     <div class="container mx-auto px-4">
         <nav class="flex items-center justify-between h-20">
             <!-- Logo -->
-            <a href="#" class="text-2xl font-bold">
+            <a href={baseUrl} class="text-2xl font-bold">
                 <span class="text-gym-red">DORIAN</span>
             </a>
 
             <!-- Menú Desktop -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#hero" class="text-white hover:text-gym-red transition-colors duration-300">Inicio</a>
-                <a href="#nosotros" class="text-white hover:text-gym-red transition-colors duration-300">Nosotros</a>
-                <a href="#instalaciones" class="text-white hover:text-gym-red transition-colors duration-300">Instalaciones</a>
-                <a href="#entrenadores" class="text-white hover:text-gym-red transition-colors duration-300">Entrenadores</a>
-                <a href="#precios" class="text-white hover:text-gym-red transition-colors duration-300">Precios</a>
-                <a href="#contacto" class="text-white hover:text-gym-red transition-colors duration-300">Contacto</a>
+                <a href={`${baseUrl}#hero`} class="text-white hover:text-gym-red transition-colors duration-300">Inicio</a>
+                <a href={`${baseUrl}#nosotros`} class="text-white hover:text-gym-red transition-colors duration-300">Nosotros</a>
+                <a href={`${baseUrl}#instalaciones`} class="text-white hover:text-gym-red transition-colors duration-300">Instalaciones</a>
+                <a href={`${baseUrl}#entrenadores`} class="text-white hover:text-gym-red transition-colors duration-300">Entrenadores</a>
+                <a href={`${baseUrl}#precios`} class="text-white hover:text-gym-red transition-colors duration-300">Precios</a>
+                <a href={`${baseUrl}#contacto`} class="text-white hover:text-gym-red transition-colors duration-300">Contacto</a>
             </div>
 
             <!-- Botón Menú Móvil -->
@@ -37,12 +42,12 @@ import { FaTimes } from 'react-icons/fa';
                 </button>
             </div>
             <div class="flex flex-col items-center space-y-6">
-                <a href="#hero" class="text-white text-xl hover:text-gym-red transition-colors duration-300">Inicio</a>
-                <a href="#nosotros" class="text-white text-xl hover:text-gym-red transition-colors duration-300">Nosotros</a>
-                <a href="#instalaciones" class="text-white text-xl hover:text-gym-red transition-colors duration-300">Instalaciones</a>
-                <a href="#entrenadores" class="text-white text-xl hover:text-gym-red transition-colors duration-300">Entrenadores</a>
-                <a href="#precios" class="text-white text-xl hover:text-gym-red transition-colors duration-300">Precios</a>
-                <a href="#contacto" class="text-white text-xl hover:text-gym-red transition-colors duration-300">Contacto</a>
+                <a href={`${baseUrl}#hero`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Inicio</a>
+                <a href={`${baseUrl}#nosotros`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Nosotros</a>
+                <a href={`${baseUrl}#instalaciones`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Instalaciones</a>
+                <a href={`${baseUrl}#entrenadores`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Entrenadores</a>
+                <a href={`${baseUrl}#precios`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Precios</a>
+                <a href={`${baseUrl}#contacto`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Contacto</a>
             </div>
         </div>
     </div>

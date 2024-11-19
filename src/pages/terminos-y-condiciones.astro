@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Términos y Condiciones">
+    <Header />
+    <main class="bg-black min-h-screen">
+        <div class="container mx-auto px-4 py-32">
+            <h1 class="text-5xl font-bold mb-8 text-center">
+                <span class="text-white">Términos y</span> <span class="text-gym-red">Condiciones</span>
+            </h1>
+            
+            <div class="prose prose-invert max-w-4xl mx-auto">
+                <p class="text-gray-400 text-center mb-16">Última actualización: {new Date().toLocaleDateString('es-ES')}</p>
+
+                <div class="space-y-8">
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">1. Identificación</h2>
+                        <p class="text-gray-300">
+                            El presente documento establece los términos y condiciones de uso de los servicios ofrecidos por:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2 mt-4">
+                            <li>Razón Social: Gimnasio Dorian</li>
+                            <li>Dirección: Av. Magallanes, El Médano, Tenerife</li>
+                            <li>Email: info@gimnasio-dorian.com</li>
+                            <li>Teléfono: +34 922 XXX XXX</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">2. Membresía y Acceso</h2>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>La membresía es personal e intransferible</li>
+                            <li>Es obligatorio presentar la tarjeta de acceso/identificación</li>
+                            <li>La edad mínima para ser miembro es de 16 años</li>
+                            <li>Los menores de 18 años necesitan autorización de un tutor legal</li>
+                            <li>El gimnasio se reserva el derecho de admisión</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">3. Cuotas y Pagos</h2>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Las cuotas deben abonarse por adelantado</li>
+                            <li>Los pagos se realizarán mediante domiciliación bancaria o en efectivo</li>
+                            <li>El impago de la cuota conlleva la suspensión del acceso</li>
+                            <li>Las tarifas pueden ser modificadas con previo aviso de 30 días</li>
+                            <li>La matrícula no es reembolsable</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">4. Normas de Uso y Conducta</h2>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Es obligatorio el uso de toalla durante el entrenamiento</li>
+                            <li>Se debe utilizar ropa y calzado deportivo adecuado</li>
+                            <li>El material debe ser devuelto a su lugar tras su uso</li>
+                            <li>No se permite el uso de lenguaje ofensivo o comportamiento agresivo</li>
+                            <li>Está prohibido el consumo de sustancias ilegales o alcohol</li>
+                            <li>Se debe mantener una higiene personal adecuada</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">5. Reservas y Clases</h2>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Las reservas pueden realizarse con 7 días de antelación</li>
+                            <li>La cancelación debe realizarse con 12 horas de antelación</li>
+                            <li>Las clases tienen un aforo limitado</li>
+                            <li>El gimnasio se reserva el derecho de modificar los horarios</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">6. Responsabilidad y Seguridad</h2>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>El gimnasio no se hace responsable de objetos perdidos o robados</li>
+                            <li>Los usuarios son responsables del buen uso del equipamiento</li>
+                            <li>Se recomienda realizar un examen médico previo</li>
+                            <li>El gimnasio dispone de seguro de responsabilidad civil</li>
+                            <li>Los daños causados intencionadamente serán facturados</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">7. Cancelación y Baja</h2>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>La baja debe comunicarse con 15 días de antelación</li>
+                            <li>La solicitud de baja debe realizarse por escrito</li>
+                            <li>No se realizan devoluciones de cuotas ya pagadas</li>
+                            <li>El gimnasio puede rescindir la membresía por incumplimiento</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">8. Modificaciones</h2>
+                        <p class="text-gray-300">
+                            El gimnasio se reserva el derecho de modificar estos términos y condiciones. 
+                            Los cambios serán notificados con 30 días de antelación a través de los canales 
+                            habituales de comunicación.
+                        </p>
+                    </div>
+
+                    <div class="bg-zinc-900/50 p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-4">9. Ley Aplicable</h2>
+                        <p class="text-gray-300">
+                            Estos términos y condiciones se rigen por la legislación española. 
+                            Cualquier disputa será sometida a los tribunales competentes de Santa Cruz de Tenerife.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>
