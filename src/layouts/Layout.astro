@@ -116,21 +116,34 @@ const { title } = Astro.props;
 				});
 			}
 
-			// Lazy loading de imágenes
+			// Lazy loading de imágenes con TypeScript
 			document.addEventListener('DOMContentLoaded', () => {
-				const images = document.querySelectorAll('img[loading="lazy"]');
+				// Asegurarnos de que estamos trabajando con HTMLImageElement
+				const lazyImages: NodeListOf<HTMLImageElement> = document.querySelectorAll('img[loading="lazy"]');
+				
 				if ('loading' in HTMLImageElement.prototype) {
-					images.forEach(img => {
-						const imgElement = img as HTMLImageElement;
-						if (imgElement.dataset.src) {
-							imgElement.src = imgElement.dataset.src;
+					// Navegadores modernos con soporte nativo de lazy loading
+					lazyImages.forEach((img: HTMLImageElement) => {
+						const dataSrc = img.getAttribute('data-src');
+						if (dataSrc) {
+							img.src = dataSrc;
+							img.removeAttribute('data-src');
 						}
 					});
 				} else {
-					// Fallback para navegadores que no soportan lazy loading
+					// Fallback para navegadores antiguos
 					const script = document.createElement('script');
 					script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
 					document.body.appendChild(script);
+
+					// Configurar clases para lazysizes
+					lazyImages.forEach((img: HTMLImageElement) => {
+						img.classList.add('lazyload');
+						const dataSrc = img.getAttribute('data-src');
+						if (dataSrc) {
+							img.setAttribute('data-src', dataSrc);
+						}
+					});
 				}
 			});
 		</script>
