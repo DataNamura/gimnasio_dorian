@@ -133,7 +133,7 @@ const navLinks = [
                 const href = navLink.getAttribute('href');
                 if (!href?.startsWith('#')) return;
 
-                const targetElement = document.querySelector(href);
+                const targetElement = document.querySelector(href) as HTMLElement;
                 if (!targetElement) return;
 
                 toggleMenu(false);
@@ -163,7 +163,7 @@ const navLinks = [
                         const href = link.getAttribute('href');
                         if (!href?.startsWith('#')) return;
                         
-                        const targetElement = document.querySelector(href);
+                        const targetElement = document.querySelector(href) as HTMLElement;
                         if (!targetElement) return;
 
                         const sectionTop = targetElement.getBoundingClientRect().top + currentScroll - headerHeight;
