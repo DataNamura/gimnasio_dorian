@@ -121,8 +121,9 @@ const { title } = Astro.props;
 				const images = document.querySelectorAll('img[loading="lazy"]');
 				if ('loading' in HTMLImageElement.prototype) {
 					images.forEach(img => {
-						if (img.dataset.src) {
-							img.src = img.dataset.src;
+						const imgElement = img as HTMLImageElement;
+						if (imgElement.dataset.src) {
+							imgElement.src = imgElement.dataset.src;
 						}
 					});
 				} else {
