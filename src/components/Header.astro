@@ -140,7 +140,7 @@ const navLinks = [
                 
                 requestAnimationFrame(() => {
                     const headerHeight = header?.offsetHeight || 0;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
                     
                     window.scrollTo({
                         top: targetPosition,
@@ -155,7 +155,7 @@ const navLinks = [
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 requestAnimationFrame(() => {
-                    const currentScroll = window.pageYOffset;
+                    const currentScroll = window.scrollY;
                     const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-link-type="nav"]');
                     const headerHeight = header?.offsetHeight || 0;
 
