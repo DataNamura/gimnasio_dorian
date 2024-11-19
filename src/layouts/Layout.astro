@@ -106,42 +106,32 @@ const { title } = Astro.props;
 			// Register Service Worker
 			if ('serviceWorker' in navigator) {
 				window.addEventListener('load', () => {
-					navigator.serviceWorker.register('/service-worker.js')
+					navigator.serviceWorker.register('/sw.js')
 						.then(registration => {
-							console.log('SW registered:', registration);
+							console.log('Service Worker registrado con éxito:', registration.scope);
 						})
 						.catch(error => {
-							console.log('SW registration failed:', error);
+							console.error('Error al registrar el Service Worker:', error);
 						});
 				});
 			}
 
-			// Performance optimizations
-			document.addEventListener('touchstart', function() {}, {passive: true});
-			document.addEventListener('wheel', function() {}, {passive: true});
-
 			// Lazy loading de imágenes
-			const lazyImages = document.querySelectorAll<HTMLImageElement>('img[data-src]');
-			
-			const lazyLoad = (target: HTMLImageElement) => {
-				const io = new IntersectionObserver((entries, observer) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							const img = entry.target as HTMLImageElement;
-							const src = img.getAttribute('data-src');
-							if (src) {
-								img.src = src;
-								img.removeAttribute('data-src');
-							}
-							observer.disconnect();
+			document.addEventListener('DOMContentLoaded', () => {
+				const images = document.querySelectorAll('img[loading="lazy"]');
+				if ('loading' in HTMLImageElement.prototype) {
+					images.forEach(img => {
+						if (img.dataset.src) {
+							img.src = img.dataset.src;
 						}
 					});
-				});
-
-				io.observe(target);
-			};
-
-			lazyImages.forEach(lazyLoad);
+				} else {
+					// Fallback para navegadores que no soportan lazy loading
+					const script = document.createElement('script');
+					script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+					document.body.appendChild(script);
+				}
+			});
 		</script>
 	</body>
 </html>

@@ -1,37 +1,45 @@
-const CACHE_NAME = 'dorian-gym-v1';
+const CACHE_NAME = 'gym-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/hero-bg.webp',
-  '/about-1.webp',
-  '/about-2.webp',
-  // Añade aquí más recursos que quieras cachear
+  '/assets/styles/main.css',
+  // Añade aquí otros recursos estáticos
 ];
 
 // Instalación del Service Worker
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+      .then((cache) => {
+        return cache.addAll(urlsToCache);
+      })
   );
 });
 
-// Estrategia de caché: Network First, fallback to Cache
-self.addEventListener('fetch', event => {
+// Estrategia de caché: Cache First, fallback to Network
+self.addEventListener('fetch', (event) => {
   event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        // Si la respuesta es válida, la guardamos en caché
-        if (response.status === 200) {
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME)
-            .then(cache => cache.put(event.request, responseClone));
+    caches.match(event.request)
+      .then((response) => {
+        if (response) {
+          return response;
         }
-        return response;
+        return fetch(event.request);
       })
-      .catch(() => {
-        // Si falla la red, intentamos servir desde caché
-        return caches.match(event.request);
-      })
+  );
+});
+
+// Limpiar cachés antiguos
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
   );
 });
