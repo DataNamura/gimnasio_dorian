@@ -9,6 +9,9 @@ import Pricing from '../components/Pricing.astro';
 import PersonalizedPlan from '../components/PersonalizedPlan.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+// Cache-Control headers
+Astro.response.headers.set('Cache-Control', 'public, max-age=604800, stale-while-revalidate=86400');
 ---
 
 <!-- Layout Principal -->
@@ -16,7 +19,7 @@ import Footer from '../components/Footer.astro';
     <!-- Navegación -->
     <Header />
     <!-- Contenido Principal -->
-    <main class="bg-gradient text-white">
+    <main class="bg-gradient text-white overflow-hidden">
         <!-- Hero Section -->
         <Hero />
         <!-- Sobre Nosotros -->
@@ -36,28 +39,63 @@ import Footer from '../components/Footer.astro';
     <Footer />
 </Layout>
 
+<script>
+    // Precarga de imágenes críticas
+    const preloadImages = () => {
+        const imagesToPreload = [
+            '/hero-bg.webp',
+            '/about-1.webp',
+            '/about-2.webp'
+        ];
+
+        imagesToPreload.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    };
+
+    // Carga diferida de componentes no críticos
+    const lazyLoadComponents = () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+
+        document.querySelectorAll('.lazy-load').forEach(el => observer.observe(el));
+    };
+
+    // Service Worker para caché offline
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', () => {
+        preloadImages();
+        lazyLoadComponents();
+    });
+</script>
+
 <style>
     :root {
         --bg-gradient: linear-gradient(to bottom, #1a1a1a, #2d2d2d, #2d1f1f);
     }
 
-    section {
-        scroll-margin-top: 5rem;
-        padding: 2rem 1rem;
+    .bg-gradient {
         background: var(--bg-gradient);
     }
 
-    main {
-        padding: 0 1rem;
-        background: var(--bg-gradient);
-    }
-
-    .text-white {
-        color: #fff;
-    }
-
-    /* Patrón de fondo sutil */
-    main::before {
+    .bg-gradient::before {
         content: '';
         position: fixed;
         top: 0;
@@ -65,10 +103,21 @@ import Footer from '../components/Footer.astro';
         width: 100%;
         height: 100%;
         background-image: 
-            linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
         background-size: 30px 30px;
         pointer-events: none;
         z-index: 0;
+    }
+
+    .lazy-load {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .lazy-load.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 </style>

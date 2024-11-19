@@ -1,123 +1,186 @@
 ---
 import { FaBars } from 'react-icons/fa';
 import { FaTimes } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 
 // Obtener la ruta actual
 const currentPath = Astro.url.pathname;
 const isHomePage = currentPath === '/';
 const baseUrl = isHomePage ? '' : '/';
+
+// Definir los enlaces para evitar repetición
+const navLinks = [
+    { href: 'hero', label: 'Inicio' },
+    { href: 'nosotros', label: 'Nosotros' },
+    { href: 'instalaciones', label: 'Instalaciones' },
+    { href: 'entrenadores', label: 'Entrenadores' },
+    { href: 'precios', label: 'Precios' },
+    { href: 'contacto', label: 'Contacto' }
+];
 ---
 
-<header class="fixed w-full top-0 z-50 bg-black border-b border-white/5">
+<header class="fixed w-full top-0 z-50 bg-black border-b border-white/5 will-change-transform">
     <div class="container mx-auto px-4">
         <nav class="flex items-center justify-between h-20">
             <!-- Logo -->
-            <a href={baseUrl} class="text-2xl font-bold">
+            <a href={baseUrl} class="text-2xl font-bold will-change-transform">
                 <span class="text-gym-red">DORIAN</span>
             </a>
 
             <!-- Menú Desktop -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href={`${baseUrl}#hero`} class="text-white hover:text-gym-red transition-colors duration-300">Inicio</a>
-                <a href={`${baseUrl}#nosotros`} class="text-white hover:text-gym-red transition-colors duration-300">Nosotros</a>
-                <a href={`${baseUrl}#instalaciones`} class="text-white hover:text-gym-red transition-colors duration-300">Instalaciones</a>
-                <a href={`${baseUrl}#entrenadores`} class="text-white hover:text-gym-red transition-colors duration-300">Entrenadores</a>
-                <a href={`${baseUrl}#precios`} class="text-white hover:text-gym-red transition-colors duration-300">Precios</a>
-                <a href={`${baseUrl}#contacto`} class="text-white hover:text-gym-red transition-colors duration-300">Contacto</a>
+                {navLinks.map(link => (
+                    <a 
+                        href={`${baseUrl}#${link.href}`} 
+                        class="text-white will-change-transform hover:opacity-80 hover:translate-y-[-1px] transition-gpu duration-200"
+                        data-link-type="nav"
+                    >
+                        {link.label}
+                    </a>
+                ))}
+                <a 
+                    href="https://www.instagram.com/gimnasiodorian_/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="text-gym-red will-change-transform hover:opacity-80 hover:translate-y-[-1px] transition-gpu duration-200 text-2xl"
+                    aria-label="Síguenos en Instagram"
+                >
+                    <FaInstagram />
+                </a>
             </div>
 
             <!-- Botón Menú Móvil -->
-            <button id="menu-btn" class="md:hidden text-white text-2xl">
+            <button 
+                id="menu-btn" 
+                class="md:hidden text-white text-2xl p-2 will-change-transform hover:opacity-80 transition-gpu duration-200"
+                aria-label="Abrir menú"
+            >
                 <FaBars />
             </button>
         </nav>
     </div>
 
     <!-- Menú Móvil -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-lg transform translate-x-full transition-transform duration-300 md:hidden">
+    <div 
+        id="mobile-menu" 
+        class="fixed inset-0 bg-black/95 backdrop-blur-lg transform translate-x-full transition-gpu duration-300 md:hidden"
+        aria-hidden="true"
+    >
         <div class="container mx-auto px-4 py-8">
             <div class="flex justify-end mb-8">
-                <button id="close-menu" class="text-white text-2xl">
+                <button 
+                    id="close-menu" 
+                    class="text-white text-2xl p-2 will-change-transform hover:opacity-80 transition-gpu duration-200"
+                    aria-label="Cerrar menú"
+                >
                     <FaTimes />
                 </button>
             </div>
             <div class="flex flex-col items-center space-y-6">
-                <a href={`${baseUrl}#hero`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Inicio</a>
-                <a href={`${baseUrl}#nosotros`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Nosotros</a>
-                <a href={`${baseUrl}#instalaciones`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Instalaciones</a>
-                <a href={`${baseUrl}#entrenadores`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Entrenadores</a>
-                <a href={`${baseUrl}#precios`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Precios</a>
-                <a href={`${baseUrl}#contacto`} class="text-white text-xl hover:text-gym-red transition-colors duration-300">Contacto</a>
+                {navLinks.map(link => (
+                    <a 
+                        href={`${baseUrl}#${link.href}`} 
+                        class="text-white text-xl will-change-transform hover:opacity-80 hover:translate-y-[-1px] transition-gpu duration-200"
+                        data-link-type="nav"
+                    >
+                        {link.label}
+                    </a>
+                ))}
+                <a 
+                    href="https://www.instagram.com/gimnasiodorian_/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="text-gym-red will-change-transform hover:opacity-80 hover:translate-y-[-1px] transition-gpu duration-200 text-2xl"
+                    aria-label="Síguenos en Instagram"
+                >
+                    <FaInstagram />
+                </a>
             </div>
         </div>
     </div>
 </header>
 
 <script>
-    // Menú móvil
-    const menuBtn = document.querySelector('#menu-btn');
-    const closeBtn = document.querySelector('#close-menu');
-    const mobileMenu = document.querySelector('#mobile-menu');
-    const mobileLinks = document.querySelectorAll('#mobile-menu a');
+    // Optimizar la gestión de eventos usando delegación
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('header');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
 
-    menuBtn?.addEventListener('click', () => {
-        mobileMenu?.classList.remove('translate-x-full');
-        document.body.style.overflow = 'hidden';
-    });
-
-    const closeMenu = () => {
-        mobileMenu?.classList.add('translate-x-full');
-        document.body.style.overflow = '';
-    };
-
-    closeBtn?.addEventListener('click', closeMenu);
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // Scroll suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            if (!href) return;
-            
-            const target = document.querySelector(href);
-            if (!target) return;
-
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+        // Usar requestAnimationFrame para animaciones suaves
+        const toggleMenu = (show: boolean) => {
+            requestAnimationFrame(() => {
+                if (mobileMenu) {
+                    mobileMenu.style.transform = show ? 'translateX(0)' : 'translateX(100%)';
+                    mobileMenu.setAttribute('aria-hidden', (!show).toString());
+                    document.body.style.overflow = show ? 'hidden' : '';
+                }
             });
-        });
-    });
+        };
 
-    // Resaltar sección activa
-    const sections = document.querySelectorAll<HTMLElement>('section[id]');
-    const navLinks = document.querySelectorAll<HTMLAnchorElement>('header nav a');
+        // Event listeners optimizados
+        menuBtn?.addEventListener('click', () => toggleMenu(true));
+        closeBtn?.addEventListener('click', () => toggleMenu(false));
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const headerHeight = 80;
+        // Delegación de eventos para los enlaces
+        document.body.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement;
+            const navLink = target.closest('[data-link-type="nav"]');
+            
+            if (navLink instanceof HTMLAnchorElement) {
+                e.preventDefault();
+                const href = navLink.getAttribute('href');
+                if (!href?.startsWith('#')) return;
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - headerHeight - 100;
-            const sectionHeight = section.offsetHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                current = '#' + section.getAttribute('id');
+                const targetElement = document.querySelector(href);
+                if (!targetElement) return;
+
+                toggleMenu(false);
+                
+                requestAnimationFrame(() => {
+                    const headerHeight = header?.offsetHeight || 0;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                });
             }
         });
 
-        navLinks.forEach(link => {
-            link.classList.remove('text-gym-red');
-            if (link.getAttribute('href') === current) {
-                link.classList.add('text-gym-red');
+        // Optimizar el scroll listener usando throttle
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const currentScroll = window.pageYOffset;
+                    const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-link-type="nav"]');
+                    const headerHeight = header?.offsetHeight || 0;
+
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (!href?.startsWith('#')) return;
+                        
+                        const targetElement = document.querySelector(href);
+                        if (!targetElement) return;
+
+                        const sectionTop = targetElement.getBoundingClientRect().top + currentScroll - headerHeight;
+                        const sectionBottom = sectionTop + targetElement.offsetHeight;
+
+                        if (currentScroll >= sectionTop && currentScroll < sectionBottom) {
+                            link.classList.add('text-gym-red');
+                        } else {
+                            link.classList.remove('text-gym-red');
+                        }
+                    });
+
+                    ticking = false;
+                });
+                ticking = true;
             }
-        });
+        }, { passive: true });
     });
 </script>
 
