@@ -72,7 +72,7 @@ import { FaTimes } from 'react-icons/fa';
 
     // Scroll suave
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
             e.preventDefault();
             const href = this.getAttribute('href');
             if (!href) return;
@@ -80,7 +80,7 @@ import { FaTimes } from 'react-icons/fa';
             const target = document.querySelector(href);
             if (!target) return;
 
-            const headerOffset = 80; // Altura del header
+            const headerOffset = 80;
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -92,8 +92,8 @@ import { FaTimes } from 'react-icons/fa';
     });
 
     // Resaltar sección activa
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('header nav a');
+    const sections = document.querySelectorAll<HTMLElement>('section[id]');
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('header nav a');
 
     window.addEventListener('scroll', () => {
         let current = '';
