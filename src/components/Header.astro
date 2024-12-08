@@ -23,26 +23,32 @@ const navLinks = [
     <div class="container mx-auto px-4">
         <nav class="flex items-center justify-between h-20">
             <!-- Logo -->
-            <a href={baseUrl} class="text-2xl font-bold will-change-transform">
+            <a href={baseUrl} class="text-2xl font-bold">
                 <span class="text-gym-red">DORIAN</span>
             </a>
 
             <!-- Menú Desktop -->
-            <div class="hidden md:flex items-center space-x-8">
+            <div class="hidden md:flex items-center space-x-6">
                 {navLinks.map(link => (
                     <a 
                         href={`${baseUrl}#${link.href}`} 
-                        class="text-white will-change-transform hover:opacity-80 hover:translate-y-[-1px] transition-gpu duration-200"
+                        class="text-white hover:text-gym-red transition-colors duration-150"
                         data-link-type="nav"
                     >
                         {link.label}
                     </a>
                 ))}
                 <a 
+                    href="/plan-personalizado"
+                    class="text-white bg-gym-red px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-150"
+                >
+                    Entrenamiento Personal
+                </a>
+                <a 
                     href="https://www.instagram.com/gimnasiodorian_/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    class="text-gym-red will-change-transform hover:opacity-80 hover:translate-y-[-1px] transition-gpu duration-200 text-2xl"
+                    class="text-gym-red hover:text-red-400 transition-colors duration-150 text-2xl"
                     aria-label="Síguenos en Instagram"
                 >
                     <FaInstagram />
@@ -52,7 +58,7 @@ const navLinks = [
             <!-- Botón Menú Móvil -->
             <button 
                 id="menu-btn" 
-                class="md:hidden text-white text-2xl p-2 will-change-transform hover:opacity-80 transition-gpu duration-200"
+                class="md:hidden text-white text-2xl p-2 hover:text-gym-red transition-colors duration-150"
                 aria-label="Abrir menú"
             >
                 <FaBars />
@@ -63,14 +69,14 @@ const navLinks = [
     <!-- Menú Móvil -->
     <div 
         id="mobile-menu" 
-        class="fixed inset-0 bg-black/95 backdrop-blur-lg transform translate-x-full transition-gpu duration-300 md:hidden"
+        class="fixed inset-0 bg-black/95 backdrop-blur-lg transform translate-x-full transition-transform duration-200 md:hidden"
         aria-hidden="true"
     >
         <div class="container mx-auto px-4 py-8">
             <div class="flex justify-end mb-8">
                 <button 
                     id="close-menu" 
-                    class="text-white text-2xl p-2 will-change-transform hover:opacity-80 transition-gpu duration-200"
+                    class="text-white text-2xl p-2 hover:text-gym-red transition-colors duration-150"
                     aria-label="Cerrar menú"
                 >
                     <FaTimes />
@@ -80,17 +86,23 @@ const navLinks = [
                 {navLinks.map(link => (
                     <a 
                         href={`${baseUrl}#${link.href}`} 
-                        class="text-white text-xl will-change-transform hover:opacity-80 hover:translate-y-[-1px] transition-gpu duration-200"
+                        class="text-white text-xl hover:text-gym-red transition-colors duration-150"
                         data-link-type="nav"
                     >
                         {link.label}
                     </a>
                 ))}
                 <a 
+                    href="/plan-personalizado"
+                    class="text-white bg-gym-red px-6 py-3 rounded-lg text-xl hover:bg-red-700 transition-colors duration-150"
+                >
+                    Entrenamiento Personal
+                </a>
+                <a 
                     href="https://www.instagram.com/gimnasiodorian_/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    class="text-gym-red will-change-transform hover:opacity-80 hover:translate-y-[-1px] transition-gpu duration-200 text-2xl"
+                    class="text-gym-red hover:text-red-400 transition-colors duration-150 text-2xl"
                     aria-label="Síguenos en Instagram"
                 >
                     <FaInstagram />
@@ -100,92 +112,56 @@ const navLinks = [
     </div>
 </header>
 
+<style>
+    /* Optimizar rendimiento */
+    .transition-transform {
+        will-change: transform;
+    }
+    
+    .transition-colors {
+        will-change: auto;
+    }
+
+    /* Prevenir reflow */
+    a, button {
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+
+    /* Optimizar animaciones */
+    @media (prefers-reduced-motion: no-preference) {
+        .transition-transform {
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+</style>
+
 <script>
     // Optimizar la gestión de eventos usando delegación
     document.addEventListener('DOMContentLoaded', () => {
-        const header = document.querySelector('header');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuBtn = document.getElementById('menu-btn');
         const closeBtn = document.getElementById('close-menu');
 
-        // Usar requestAnimationFrame para animaciones suaves
-        const toggleMenu = (show: boolean) => {
-            requestAnimationFrame(() => {
-                if (mobileMenu) {
-                    mobileMenu.style.transform = show ? 'translateX(0)' : 'translateX(100%)';
-                    mobileMenu.setAttribute('aria-hidden', (!show).toString());
-                    document.body.style.overflow = show ? 'hidden' : '';
+        if (mobileMenu && menuBtn && closeBtn) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            });
+
+            // Cerrar menú al hacer clic en un enlace
+            mobileMenu.addEventListener('click', (event) => {
+                const target = event.target as HTMLElement;
+                if (target && target instanceof HTMLAnchorElement) {
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.style.overflow = '';
                 }
             });
-        };
-
-        // Event listeners optimizados
-        menuBtn?.addEventListener('click', () => toggleMenu(true));
-        closeBtn?.addEventListener('click', () => toggleMenu(false));
-
-        // Delegación de eventos para los enlaces
-        document.body.addEventListener('click', (e) => {
-            const target = e.target as HTMLElement;
-            const navLink = target.closest('[data-link-type="nav"]');
-            
-            if (navLink instanceof HTMLAnchorElement) {
-                e.preventDefault();
-                const href = navLink.getAttribute('href');
-                if (!href?.startsWith('#')) return;
-
-                const targetElement = document.querySelector(href) as HTMLElement;
-                if (!targetElement) return;
-
-                toggleMenu(false);
-                
-                requestAnimationFrame(() => {
-                    const headerHeight = header?.offsetHeight || 0;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        });
-
-        // Optimizar el scroll listener usando throttle
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const currentScroll = window.scrollY;
-                    const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-link-type="nav"]');
-                    const headerHeight = header?.offsetHeight || 0;
-
-                    navLinks.forEach(link => {
-                        const href = link.getAttribute('href');
-                        if (!href?.startsWith('#')) return;
-                        
-                        const targetElement = document.querySelector(href) as HTMLElement;
-                        if (!targetElement) return;
-
-                        const sectionTop = targetElement.getBoundingClientRect().top + currentScroll - headerHeight;
-                        const sectionBottom = sectionTop + targetElement.offsetHeight;
-
-                        if (currentScroll >= sectionTop && currentScroll < sectionBottom) {
-                            link.classList.add('text-gym-red');
-                        } else {
-                            link.classList.remove('text-gym-red');
-                        }
-                    });
-
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
+        }
     });
 </script>
-
-<style>
-    header {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-</style>
