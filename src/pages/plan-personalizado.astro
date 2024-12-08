@@ -1,0 +1,442 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { FaCheck, FaWhatsapp } from 'react-icons/fa';
+import { IoLogoInstagram } from 'react-icons/io5';
+---
+
+<Layout title="Plan Personalizado">
+    <Header />
+    
+    <main class="text-white overflow-hidden">
+        <!-- Hero Section -->
+        <section class="relative min-h-[60vh] flex items-center justify-center">
+            <div class="absolute inset-0" style="z-index: 1;">
+                <img 
+                    src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                    alt="Entrenamiento personalizado"
+                    class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-black/70"></div>
+            </div>
+            
+            <div class="relative z-10 container mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">Plan</span> <span class="text-gym-red">Personalizado</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Alcanza tus objetivos con un plan diseñado exclusivamente para ti
+                </p>
+                <a 
+                    href="https://wa.me/34695270627?text=Hola,%20me%20interesa%20el%20plan%20personalizado" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 bg-gym-red text-white py-4 px-8 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors duration-300"
+                >
+                    <FaWhatsapp className="text-2xl" />
+                    Consulta Gratuita
+                </a>
+            </div>
+        </section>
+
+        <!-- Beneficios -->
+        <section class="py-20 relative">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                    <span class="text-white">¿Por qué elegir un</span> <span class="text-gym-red">Plan Personalizado?</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Card 1 -->
+                    <div class="bg-zinc-900/50 p-8 rounded-xl border border-white/5 shadow-2xl backdrop-blur-sm" data-aos="fade-up">
+                        <img 
+                            src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1669&q=80"
+                            alt="Atención personalizada"
+                            class="w-full h-48 object-cover rounded-lg mb-6"
+                        />
+                        <h3 class="text-2xl font-bold text-white mb-4">Atención Personalizada</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Entrenador personal dedicado a tu progreso</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Evaluación completa de tu condición física</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Ajustes continuos según tu evolución</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-zinc-900/50 p-8 rounded-xl border border-white/5 shadow-2xl backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80"
+                            alt="Plan nutricional"
+                            class="w-full h-48 object-cover rounded-lg mb-6"
+                        />
+                        <h3 class="text-2xl font-bold text-white mb-4">Plan Nutricional</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Dieta personalizada según tus objetivos</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Recetas y plan de comidas semanal</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Guía de suplementación si es necesaria</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-zinc-900/50 p-8 rounded-xl border border-white/5 shadow-2xl backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+                        <img 
+                            src="https://images.unsplash.com/photo-1461088945293-14020914d58d?q=80&w=500"
+                            alt="Seguimiento continuo"
+                            class="w-full h-48 object-cover rounded-lg mb-6"
+                        />
+                        <h3 class="text-2xl font-bold text-white mb-4">Seguimiento Continuo</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Soporte por WhatsApp 24/7</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Seguimiento semanal de progreso</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gray-300">
+                                <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                <span>Ajustes del plan según resultados</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proceso -->
+        <section class="relative py-20 bg-gradient before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] before:bg-[size:30px_30px] before:pointer-events-none before:z-0">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4" data-aos="fade-up">
+                        <span class="text-white">Cómo</span> <span class="text-gym-red">Funciona</span>
+                    </h2>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        Un proceso simple y efectivo diseñado para maximizar tus resultados
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <!-- Paso 1 -->
+                    <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/5 shadow-2xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up">
+                        <div class="flex items-start gap-4">
+                            <span class="bg-gym-red w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-bold shrink-0">1</span>
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-bold text-gym-red">Evaluación Inicial</h3>
+                                <img 
+                                    src="https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=500"
+                                    alt="Evaluación física"
+                                    class="w-full h-48 object-cover rounded-lg mb-4"
+                                />
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Análisis completo de composición corporal</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Evaluación de fuerza y resistencia</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Definición de objetivos específicos</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/5 shadow-2xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-start gap-4">
+                            <span class="bg-gym-red w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-bold shrink-0">2</span>
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-bold text-gym-red">Plan Personalizado</h3>
+                                <img 
+                                    src="https://images.unsplash.com/photo-1605296867424-35fc25c9212a?q=80&w=500"
+                                    alt="Plan personalizado"
+                                    class="w-full h-48 object-cover rounded-lg mb-4"
+                                />
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Rutina de entrenamiento adaptada a tus objetivos</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Plan nutricional personalizado</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Calendario de seguimiento semanal</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-white/5 shadow-2xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-start gap-4">
+                            <span class="bg-gym-red w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-bold shrink-0">3</span>
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-bold text-gym-red">Seguimiento Continuo</h3>
+                                <img 
+                                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=500"
+                                    alt="Seguimiento continuo"
+                                    class="w-full h-48 object-cover rounded-lg mb-4"
+                                />
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Ajustes semanales según tu progreso</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Soporte por WhatsApp 24/7</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-300">
+                                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                        <span>Sesiones de revisión mensuales</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Mejorado -->
+                <div class="text-center" data-aos="fade-up">
+                    <p class="text-2xl mb-6 text-white">¿Listo para transformar tu cuerpo y tu vida?</p>
+                    <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Obtén tu primera consulta gratuita y comienza tu viaje hacia un mejor estado físico
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a 
+                            href="https://wa.me/34695270627?text=Hola,%20me%20interesa%20el%20plan%20personalizado" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-gym-red text-white py-4 px-8 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                        >
+                            <FaWhatsapp className="text-2xl" />
+                            Consulta Gratuita
+                        </a>
+                        <a 
+                            href="https://www.instagram.com/doriangym/" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm text-white py-4 px-8 rounded-lg text-lg font-semibold hover:bg-black/50 transition-colors duration-300 border border-white/10 shadow-lg hover:shadow-xl"
+                        >
+                            <IoLogoInstagram className="text-2xl" />
+                            Síguenos en Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entrenadores -->
+        <section class="py-20 relative">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                    <span class="text-white">Nuestros</span> <span class="text-gym-red">Entrenadores Expertos</span>
+                </h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                    <!-- Jorge -->
+                    <div class="relative group bg-black/30 backdrop-blur-sm rounded-xl p-4 border border-white/5 shadow-2xl" data-aos="fade-up">
+                        <div class="relative overflow-hidden rounded-xl shadow-lg">
+                            <img 
+                                src="/jorge.png"
+                                alt="Jorge - Entrenador Personal y Culturista Profesional"
+                                class="w-full aspect-[3/4] object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+
+                        <div class="mt-4 text-center">
+                            <h3 class="text-2xl font-semibold text-white">Jorge</h3>
+                            <p class="text-gym-red">Culturista Profesional</p>
+                            <div class="mt-4 space-y-4">
+                                <p>
+                                    Con más de una década de experiencia en el culturismo profesional y el entrenamiento personal, 
+                                    Jorge ha dedicado su vida a la excelencia en el fitness. Su trayectoria incluye múltiples 
+                                    competencias profesionales y la transformación exitosa de cientos de clientes.
+                                </p>
+                                <p>
+                                    Su enfoque combina principios científicos del entrenamiento con una profunda comprensión 
+                                    de la nutrición deportiva, permitiéndole diseñar programas que maximizan resultados mientras 
+                                    priorizan la salud a largo plazo.
+                                </p>
+                            </div>
+
+                            <ul class="space-y-3 mt-6">
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                    <span>Especialista en hipertrofia y definición muscular</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                    <span>Experto en nutrición deportiva y suplementación</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                    <span>Preparador de competidores de culturismo</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                    <span>Certificado en biomecánica y rehabilitación</span>
+                                </li>
+                            </ul>
+
+                            <a 
+                                href="https://www.instagram.com/jorge_jimenez_diaz/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 text-white hover:text-gym-red transition-colors mt-6"
+                            >
+                                <IoLogoInstagram className="text-xl" />
+                                <span>Sígueme en Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Luz -->
+                    <div class="relative group bg-black/30 backdrop-blur-sm rounded-xl p-4 border border-white/5 shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative overflow-hidden rounded-xl shadow-lg">
+                            <img 
+                                src="https://images.unsplash.com/photo-1593476123561-9516f2097158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                                alt="Luz - Entrenadora Personal y Especialista en Fitness Femenino"
+                                class="w-full aspect-[3/4] object-cover transform group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+
+                        <div class="mt-4 text-center">
+                            <h3 class="text-2xl font-semibold text-white">Luz</h3>
+                            <p class="text-gym-red">Entrenadora Personal</p>
+                            <div class="mt-4 space-y-4">
+                                <p>
+                                    Luz ha revolucionado el enfoque del entrenamiento femenino, combinando su experiencia 
+                                    en fitness con una profunda comprensión de la fisiología femenina. Su método único 
+                                    integra el entrenamiento funcional con técnicas de rehabilitación, creando programas 
+                                    que empoderan a las mujeres para alcanzar sus metas.
+                                </p>
+                                <p>
+                                    Con una formación especializada en rehabilitación y años de experiencia trabajando 
+                                    con mujeres de todas las edades, Luz se ha convertido en referente en el 
+                                    entrenamiento adaptado a las diferentes etapas de la vida de la mujer.
+                                </p>
+                            </div>
+
+                            <ul class="space-y-3 mt-6">
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                    <span>Especialista en entrenamiento pre y post natal</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                    <span>Experta en rehabilitación y recuperación funcional</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                    <span>Nutrición específica para mujeres deportistas</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                                    <span>Certificada en entrenamiento hormonal femenino</span>
+                                </li>
+                            </ul>
+
+                            <a 
+                                href="https://www.instagram.com/luzdiaz809/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 text-white hover:text-gym-red transition-colors mt-6"
+                            >
+                                <IoLogoInstagram className="text-xl" />
+                                <span>Sígueme en Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="relative py-20">
+            <div class="absolute inset-0" style="z-index: 1;">
+                <img 
+                    src="https://images.unsplash.com/photo-1637430308606-86576d8fef3c?q=80&w=1760"
+                    alt="Transformación"
+                    class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-black/70"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-white">Comienza Tu</span> <span class="text-gym-red">Transformación</span>
+                </h2>
+                <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Da el primer paso hacia tus objetivos fitness. Contacta con nosotros y obtén una consulta gratuita.
+                </p>
+                <a 
+                    href="https://wa.me/34695270627?text=Hola,%20me%20interesa%20el%20plan%20personalizado" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 bg-gym-red text-white py-4 px-8 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                    <FaWhatsapp className="text-2xl" />
+                    Contactar Ahora
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    :root {
+        --bg-gradient: linear-gradient(to bottom, #1a1a1a, #2d2d2d, #2d1f1f);
+    }
+
+    .bg-gradient {
+        background: var(--bg-gradient);
+    }
+
+    .bg-gradient::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+        pointer-events: none;
+        z-index: 0;
+    }
+</style>

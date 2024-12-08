@@ -12,7 +12,7 @@ import { FaCheck } from 'react-icons/fa';
             Planes flexibles adaptados a tus necesidades
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             <!-- Plan Mensual -->
             <div class="bg-black/30 backdrop-blur-sm rounded-xl p-8 flex flex-col relative overflow-hidden group hover:scale-105 transition-transform duration-300 border border-white/5 shadow-2xl" data-aos="fade-up">
                 <div class="absolute top-0 left-0 w-full h-2 bg-gym-red transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
@@ -98,6 +98,40 @@ import { FaCheck } from 'react-icons/fa';
                         <span>Duchas incluidas</span>
                     </li>
                 </ul>
+            </div>
+
+            <!-- Plan Personalizado -->
+            <div class="bg-black/30 backdrop-blur-sm rounded-xl p-8 flex flex-col relative overflow-hidden group hover:scale-105 transition-transform duration-300 border border-white/5 shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gym-red transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                <h3 class="text-2xl font-bold text-white mb-4">Plan Personalizado</h3>
+                <div class="mb-6">
+                    <span class="text-4xl font-bold text-gym-red">Consultar</span>
+                </div>
+                <p class="text-gray-400 mb-6">Tu plan totalmente personalizado</p>
+                <ul class="space-y-3 mb-8 flex-grow">
+                    <li class="flex items-center text-gray-300">
+                        <FaCheck className="text-gym-red mr-2" />
+                        <span>Entrenamiento personalizado</span>
+                    </li>
+                    <li class="flex items-center text-gray-300">
+                        <FaCheck className="text-gym-red mr-2" />
+                        <span>Plan nutricional</span>
+                    </li>
+                    <li class="flex items-center text-gray-300">
+                        <FaCheck className="text-gym-red mr-2" />
+                        <span>Seguimiento continuo</span>
+                    </li>
+                    <li class="flex items-center text-gray-300">
+                        <FaCheck className="text-gym-red mr-2" />
+                        <span>Soporte WhatsApp</span>
+                    </li>
+                </ul>
+                <a 
+                    href="/plan-personalizado" 
+                    class="bg-gym-red text-white py-3 px-6 rounded-lg text-center hover:bg-red-700 transition-colors duration-300"
+                >
+                    Ver detalles
+                </a>
             </div>
         </div>
     </div>
