@@ -67,13 +67,9 @@ const navLinks = [
     </div>
 
     <!-- Menú Móvil -->
-    <div 
-        id="mobile-menu" 
-        class="fixed inset-0 bg-[#000000] md:hidden transform translate-x-full transition-transform duration-200"
-        style="background-color: #000000;"
-        aria-hidden="true"
-    >
-        <div class="menu-content container mx-auto px-4 py-8 bg-[#000000]">
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu-content" id="mobile-menu">
+        <div class="px-4 py-8">
             <div class="flex justify-end mb-8">
                 <button 
                     id="close-menu" 
@@ -111,83 +107,77 @@ const navLinks = [
             </div>
         </div>
     </div>
-</header>
 
-<style>
-    /* Optimizar rendimiento */
-    .transition-transform {
-        will-change: transform;
-    }
-    
-    .transition-colors {
-        will-change: auto;
-    }
-
-    /* Prevenir reflow */
-    a, button {
-        backface-visibility: hidden;
-        transform: translateZ(0);
-    }
-
-    /* Optimizar animaciones */
-    @media (prefers-reduced-motion: no-preference) {
-        .transition-transform {
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    <style>
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #000000;
+            z-index: 50;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-    }
 
-    #mobile-menu {
-        background-color: #000000 !important;
-        -webkit-backdrop-filter: none !important;
-        backdrop-filter: none !important;
-    }
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-    #mobile-menu.translate-x-0 {
-        animation: fadeIn 0.2s ease-out forwards;
-        background-color: #000000 !important;
-    }
+        .mobile-menu-content {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: #000000;
+            z-index: 51;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
 
-    /* Asegurarnos de que no haya transparencias */
-    #mobile-menu * {
-        background-color: transparent !important;
-    }
+        .mobile-menu-content.active {
+            right: 0;
+        }
 
-    .menu-content {
-        background-color: #000000 !important;
-    }
+        @media (min-width: 768px) {
+            .mobile-menu-overlay,
+            .mobile-menu-content {
+                display: none;
+            }
+        }
+    </style>
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-</style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('mobile-menu-overlay');
+            const menuBtn = document.getElementById('menu-btn');
+            const closeBtn = document.getElementById('close-menu');
+            const navLinks = document.querySelectorAll('[data-link-type="nav"]');
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-menu');
-        const navLinks = document.querySelectorAll('[data-link-type="nav"]');
+            if (!mobileMenu || !menuBtn || !closeBtn || !menuOverlay) return;
 
-        if (!mobileMenu || !menuBtn || !closeBtn) return;
+            const toggleMenu = () => {
+                menuOverlay.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+            };
 
-        const toggleMenu = () => {
-            const isOpen = mobileMenu.classList.contains('translate-x-0');
-            mobileMenu.classList.toggle('translate-x-0');
-            mobileMenu.classList.toggle('translate-x-full');
-            mobileMenu.classList.toggle('open', !isOpen);
-            document.body.style.overflow = isOpen ? '' : 'hidden';
-        };
+            menuBtn.addEventListener('click', toggleMenu);
+            closeBtn.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
 
-        menuBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth < 768) {
-                    toggleMenu();
-                }
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768) {
+                        toggleMenu();
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
+</header>
