@@ -19,7 +19,7 @@ const navLinks = [
 ];
 ---
 
-<header class="fixed w-full top-0 z-50 bg-black/95 border-b border-white/5 will-change-transform">
+<header class="fixed w-full top-0 z-50 bg-black border-b border-white/5 will-change-transform">
     <div class="container mx-auto px-4">
         <nav class="flex items-center justify-between h-20">
             <!-- Logo -->
@@ -69,7 +69,7 @@ const navLinks = [
     <!-- Menú Móvil -->
     <div 
         id="mobile-menu" 
-        class="fixed inset-0 bg-black transform translate-x-full transition-transform duration-200 md:hidden"
+        class="fixed inset-0 bg-black md:hidden transform translate-x-full transition-transform duration-200"
         aria-hidden="true"
     >
         <div class="container mx-auto px-4 py-8">
@@ -94,7 +94,7 @@ const navLinks = [
                 ))}
                 <a 
                     href="/plan-personalizado"
-                    class="text-white bg-gym-red px-6 py-3 rounded-lg text-xl hover:bg-red-700 transition-colors duration-150"
+                    class="text-white bg-gym-red px-6 py-3 rounded-lg hover:bg-red-700 transition-all duration-300 font-semibold hover:scale-105 shadow-lg shadow-red-500/20"
                 >
                     Entrenamiento Personal
                 </a>
@@ -102,7 +102,7 @@ const navLinks = [
                     href="https://www.instagram.com/gimnasiodorian_/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    class="text-gym-red hover:text-red-400 transition-colors duration-150 text-2xl"
+                    class="text-gym-red hover:text-red-400 transition-all duration-300 text-2xl hover:scale-110"
                     aria-label="Síguenos en Instagram"
                 >
                     <FaInstagram />
