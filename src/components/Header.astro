@@ -70,6 +70,7 @@ const navLinks = [
     <div 
         id="mobile-menu" 
         class="fixed inset-0 bg-black md:hidden transform translate-x-full transition-transform duration-200"
+        style="background-color: black;"
         aria-hidden="true"
     >
         <div class="container mx-auto px-4 py-8">
@@ -134,34 +135,41 @@ const navLinks = [
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
     }
+
+    #mobile-menu {
+        background-color: black !important;
+    }
+    #mobile-menu.open {
+        background-color: black !important;
+    }
 </style>
 
 <script>
-    // Optimizar la gestión de eventos usando delegación
     document.addEventListener('DOMContentLoaded', () => {
         const mobileMenu = document.getElementById('mobile-menu');
         const menuBtn = document.getElementById('menu-btn');
         const closeBtn = document.getElementById('close-menu');
+        const navLinks = document.querySelectorAll('[data-link-type="nav"]');
 
-        if (mobileMenu && menuBtn && closeBtn) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('translate-x-full');
-                document.body.style.overflow = 'hidden';
-            });
+        if (!mobileMenu || !menuBtn || !closeBtn) return;
 
-            closeBtn.addEventListener('click', () => {
-                mobileMenu.classList.add('translate-x-full');
-                document.body.style.overflow = '';
-            });
+        const toggleMenu = () => {
+            const isOpen = mobileMenu.classList.contains('translate-x-0');
+            mobileMenu.classList.toggle('translate-x-0');
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileMenu.classList.toggle('open', !isOpen);
+            document.body.style.overflow = isOpen ? '' : 'hidden';
+        };
 
-            // Cerrar menú al hacer clic en un enlace
-            mobileMenu.addEventListener('click', (event) => {
-                const target = event.target as HTMLElement;
-                if (target && target instanceof HTMLAnchorElement) {
-                    mobileMenu.classList.add('translate-x-full');
-                    document.body.style.overflow = '';
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    toggleMenu();
                 }
             });
-        }
+        });
     });
 </script>
