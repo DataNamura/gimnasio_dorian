@@ -7,7 +7,7 @@
                     Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación.
                 </p>
                 <p class="leading-relaxed">
-                    Puede aceptar todas las cookies pulsando el botón "Aceptar" o configurarlas o rechazar su uso pulsando "Configurar". Para más información, consulte nuestra 
+                    Puede aceptar o rechazar el uso de cookies. Para más información, consulte nuestra 
                     <a href="/politica-de-cookies" class="text-gym-red hover:text-red-400 underline transition-colors duration-300">Política de Cookies</a>.
                 </p>
             </div>
@@ -16,13 +16,13 @@
                     id="accept-cookies" 
                     class="bg-gym-red text-white px-8 py-3 rounded-xl hover:bg-red-700 transition-all duration-300 text-sm font-semibold whitespace-nowrap hover:scale-105 shadow-lg shadow-red-500/20"
                 >
-                    Aceptar Todo
+                    Aceptar
                 </button>
                 <button 
-                    id="configure-cookies" 
+                    id="reject-cookies" 
                     class="bg-black/50 border border-white/10 text-white px-8 py-3 rounded-xl hover:bg-black/70 transition-all duration-300 text-sm font-semibold whitespace-nowrap hover:scale-105 hover:border-white/20"
                 >
-                    Configurar
+                    Rechazar
                 </button>
             </div>
         </div>
@@ -49,7 +49,7 @@
 <script>
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptButton = document.getElementById('accept-cookies');
-    const configureButton = document.getElementById('configure-cookies');
+    const rejectButton = document.getElementById('reject-cookies');
 
     // Función para mostrar el banner
     const showBanner = () => {
@@ -67,18 +67,19 @@
         }
     };
 
-    // Comprobar si ya se han aceptado las cookies
-    if (!localStorage.getItem('cookies-accepted')) {
+    // Comprobar si ya se han aceptado o rechazado las cookies
+    if (!localStorage.getItem('cookies-preference')) {
         // Mostrar el banner después de un pequeño delay
         setTimeout(showBanner, 1000);
     }
 
     acceptButton?.addEventListener('click', () => {
-        localStorage.setItem('cookies-accepted', 'true');
+        localStorage.setItem('cookies-preference', 'accepted');
         hideBanner();
     });
 
-    configureButton?.addEventListener('click', () => {
-        window.location.href = '/politica-de-cookies';
+    rejectButton?.addEventListener('click', () => {
+        localStorage.setItem('cookies-preference', 'rejected');
+        hideBanner();
     });
 </script>
