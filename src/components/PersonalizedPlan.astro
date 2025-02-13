@@ -1,66 +1,115 @@
 ---
+import { FaCheck, FaWhatsapp, FaChartLine, FaClipboardList, FaUserCog } from 'react-icons/fa';
 ---
 
-<section id="plan-personalizado" class="py-20 border-t border-white/10">
+<section id="plan-personalizado" class="py-20 relative">
     <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-center">
-                Plan <span class="text-gym-red">Personalizado</span>
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4" data-aos="fade-up">
+                <span class="text-white">Plan</span> <span class="text-gym-red">Personalizado</span>
             </h2>
-            <p class="text-xl text-gray-300 mb-12 text-center">
-                Diseñamos un plan de entrenamiento único adaptado a tus objetivos y necesidades específicas.
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Alcanza tus objetivos con un programa diseñado exclusivamente para ti
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-black/50 p-8 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-6 text-red-600">Incluye</h3>
-                    <ul class="space-y-4 text-gray-300">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Evaluación física completa
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Plan de entrenamiento personalizado
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Seguimiento nutricional
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Acceso ilimitado al gimnasio
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Soporte continuo
-                        </li>
-                    </ul>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Card 1: Evaluación -->
+            <div class="bg-black/30 backdrop-blur-sm rounded-xl p-8 border border-white/5 hover:border-white/20 hover:scale-105 transition-all duration-300 group" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gym-red/10 flex items-center justify-center text-gym-red group-hover:scale-110 transition-transform duration-300">
+                        <FaChartLine size={24} />
+                    </div>
+                    <div class="text-3xl text-gym-red font-bold">01</div>
                 </div>
-                <div class="bg-black/50 p-8 rounded-lg flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold mb-6 text-gym-red">¿Interesado?</h3>
-                    <p class="text-gray-300 mb-8">
-                        Contacta con nosotros para comenzar tu transformación fitness hoy mismo.
-                    </p>
-                    <a 
-                        href="https://www.instagram.com/gimnasiodorian_/" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        class="bg-red-600 text-white py-3 px-6 rounded-lg text-center hover:bg-red-700 transition-colors duration-300"
-                    >
-                        Comenzar Ahora
-                    </a>
-                </div>
+                <h3 class="text-2xl font-bold text-white mb-6">Evaluación Inicial</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Análisis completo de composición corporal</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Evaluación de fuerza y resistencia</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Definición de objetivos específicos</span>
+                    </li>
+                </ul>
             </div>
+
+            <!-- Card 2: Plan -->
+            <div class="bg-black/30 backdrop-blur-sm rounded-xl p-8 border border-white/5 hover:border-white/20 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gym-red/10 flex items-center justify-center text-gym-red group-hover:scale-110 transition-transform duration-300">
+                        <FaClipboardList size={24} />
+                    </div>
+                    <div class="text-3xl text-gym-red font-bold">02</div>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-6">Diseño del Plan</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Rutina de entrenamiento personalizada</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Plan nutricional adaptado</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Calendario de seguimiento</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 3: Seguimiento -->
+            <div class="bg-black/30 backdrop-blur-sm rounded-xl p-8 border border-white/5 hover:border-white/20 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gym-red/10 flex items-center justify-center text-gym-red group-hover:scale-110 transition-transform duration-300">
+                        <FaUserCog size={24} />
+                    </div>
+                    <div class="text-3xl text-gym-red font-bold">03</div>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-6">Seguimiento</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Ajustes semanales según progreso</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Soporte continuo por WhatsApp</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-300">
+                        <FaCheck className="text-gym-red mt-1 flex-shrink-0" />
+                        <span>Evaluaciones mensuales</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-16" data-aos="fade-up">
+            <a 
+                href="https://wa.me/34695270627?text=Hola,%20me%20interesa%20el%20plan%20personalizado" 
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-gym-red text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-red-700 transition-all duration-300 hover:scale-105 shadow-lg shadow-red-500/20"
+            >
+                <FaWhatsapp className="text-2xl" />
+                Consulta Gratuita
+            </a>
         </div>
     </div>
 </section>
+
+<style>
+    section {
+        background-image: url('/gym-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>

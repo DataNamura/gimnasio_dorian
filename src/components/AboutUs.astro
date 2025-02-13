@@ -77,6 +77,11 @@ import { FaDumbbell, FaUsers, FaClock, FaHeart } from 'react-icons/fa';
                         alt="Instalaciones del gimnasio en El Médano" 
                         class="w-full h-full object-cover transform transition-transform duration-500 carousel-image hidden"
                     />
+                    <img 
+                        src="/barbara.jpg" 
+                        alt="Entrenamiento en Gimnasio Dorian" 
+                        class="w-full h-full object-cover transform transition-transform duration-500 carousel-image hidden"
+                    />
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -95,19 +100,23 @@ import { FaDumbbell, FaUsers, FaClock, FaHeart } from 'react-icons/fa';
     }
 
     @keyframes carousel {
-        0%, 30% {
+        0%, 23% {
             opacity: 1;
             z-index: 3;
         }
-        33%, 63% {
+        25%, 48% {
             opacity: 0;
             z-index: 1;
         }
-        66%, 96% {
+        50%, 73% {
             opacity: 0;
             z-index: 1;
         }
-        97%, 100% {
+        75%, 98% {
+            opacity: 0;
+            z-index: 1;
+        }
+        100% {
             opacity: 1;
             z-index: 3;
         }
@@ -118,7 +127,7 @@ import { FaDumbbell, FaUsers, FaClock, FaHeart } from 'react-icons/fa';
         top: 0;
         left: 0;
         opacity: 0;
-        animation: carousel 9s infinite;
+        animation: carousel 12s infinite;
         transition: opacity 0.5s ease-in-out;
     }
 
@@ -128,10 +137,14 @@ import { FaDumbbell, FaUsers, FaClock, FaHeart } from 'react-icons/fa';
     }
 
     .carousel-image:nth-child(2) {
-        animation-delay: -6s;
+        animation-delay: -9s;
     }
 
     .carousel-image:nth-child(3) {
+        animation-delay: -6s;
+    }
+
+    .carousel-image:nth-child(4) {
         animation-delay: -3s;
     }
 </style>

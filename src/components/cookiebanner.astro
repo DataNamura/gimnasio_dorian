@@ -1,0 +1,84 @@
+<div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 bg-black/95 backdrop-blur-sm border border-white/10 rounded-2xl shadow-2xl transform translate-y-full transition-all duration-500 z-50">
+    <div class="container mx-auto px-6 py-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-sm text-gray-300 space-y-3">
+                <h3 class="text-white text-lg font-semibold mb-2">🍪 Política de Cookies</h3>
+                <p class="leading-relaxed">
+                    Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación.
+                </p>
+                <p class="leading-relaxed">
+                    Puede aceptar todas las cookies pulsando el botón "Aceptar" o configurarlas o rechazar su uso pulsando "Configurar". Para más información, consulte nuestra 
+                    <a href="/politica-de-cookies" class="text-gym-red hover:text-red-400 underline transition-colors duration-300">Política de Cookies</a>.
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+                <button 
+                    id="accept-cookies" 
+                    class="bg-gym-red text-white px-8 py-3 rounded-xl hover:bg-red-700 transition-all duration-300 text-sm font-semibold whitespace-nowrap hover:scale-105 shadow-lg shadow-red-500/20"
+                >
+                    Aceptar Todo
+                </button>
+                <button 
+                    id="configure-cookies" 
+                    class="bg-black/50 border border-white/10 text-white px-8 py-3 rounded-xl hover:bg-black/70 transition-all duration-300 text-sm font-semibold whitespace-nowrap hover:scale-105 hover:border-white/20"
+                >
+                    Configurar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .cookie-banner-show {
+        animation: slideUp 0.5s ease forwards;
+    }
+</style>
+
+<script>
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptButton = document.getElementById('accept-cookies');
+    const configureButton = document.getElementById('configure-cookies');
+
+    // Función para mostrar el banner
+    const showBanner = () => {
+        if (cookieBanner) {
+            cookieBanner.style.transform = 'translateY(0)';
+            cookieBanner.style.opacity = '1';
+        }
+    };
+
+    // Función para ocultar el banner
+    const hideBanner = () => {
+        if (cookieBanner) {
+            cookieBanner.style.transform = 'translateY(100%)';
+            cookieBanner.style.opacity = '0';
+        }
+    };
+
+    // Comprobar si ya se han aceptado las cookies
+    if (!localStorage.getItem('cookies-accepted')) {
+        // Mostrar el banner después de un pequeño delay
+        setTimeout(showBanner, 1000);
+    }
+
+    acceptButton?.addEventListener('click', () => {
+        localStorage.setItem('cookies-accepted', 'true');
+        hideBanner();
+    });
+
+    configureButton?.addEventListener('click', () => {
+        window.location.href = '/politica-de-cookies';
+    });
+</script>
